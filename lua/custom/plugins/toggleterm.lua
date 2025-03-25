@@ -2,7 +2,6 @@ return {
   {
     'akinsho/toggleterm.nvim',
     version = '*',
-    config = true,
     opts = {
       size = 20,
       open_mapping = [[<c-\>]],
@@ -14,5 +13,19 @@ return {
         border = 'curved',
       },
     },
+    init = function()
+      local Terminal = require('toggleterm.terminal').Terminal
+      local lazygit = Terminal:new {
+        cmd = 'lazygit',
+        display_name = ' LazyGit',
+        hidden = true,
+        direction = 'float',
+        close_on_exit = true,
+      }
+
+      vim.keymap.set('n', '<leader>g', function()
+        lazygit:toggle()
+      end, { desc = 'Open LazyGit in Floating Terminal' })
+    end,
   },
 }
