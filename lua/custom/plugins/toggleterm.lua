@@ -19,7 +19,7 @@ return {
       local Terminal = require('toggleterm.terminal').Terminal
       local lazygit = Terminal:new {
         cmd = 'lazygit',
-        display_name = ' LazyGit',
+        display_name = ' LazyGit',
         hidden = true,
         direction = 'float',
         close_on_exit = true,
